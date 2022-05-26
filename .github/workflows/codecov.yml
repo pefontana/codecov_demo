@@ -3,9 +3,6 @@ name: test
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ '*' ]
-
 env:
   CARGO_TERM_COLOR: always
 
@@ -22,13 +19,9 @@ jobs:
           override: true
           components: rustfmt, clippy
     - uses: actions/checkout@v3
-    - name: format
-      run: cargo fmt --all -- --check
-    - name: Build
-      run: make build
-    - name: Run tests
-      run: make test
-    - name: Run clippy
-      run: make clippy
     - name: Coverage
       run: make coverage
+    - name: Upload to codecov.io
+      uses: codecov/codecov-action@v2
+      with:
+        fail_ci_if_error:     true
