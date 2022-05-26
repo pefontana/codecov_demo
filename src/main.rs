@@ -1,4 +1,3 @@
 mod square;
 
-fn main() {
-}
+fn main() {}
