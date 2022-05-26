@@ -1,0 +1,4 @@
+[codecov_demo]
+[report]
+output-dir = "target/tarpaulin"
+out = ["Html", "Xml"]
